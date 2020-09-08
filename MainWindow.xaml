@@ -6,12 +6,23 @@
          xmlns:classes="clr-namespace:FileExplorer.Events"
         xmlns:local="clr-namespace:FileExplorer"
         mc:Ignorable="d"
-        Title="TreeView File Explorer for Windows (by Yaniv Harnoy)" Height="450" Width="800">
-    <TreeView x:Name="myTree"  HorizontalAlignment="Left" VerticalAlignment="top">
-        <TreeView.ItemContainerStyle>
-            <Style TargetType="{x:Type TreeViewItem}">
-                <EventSetter Event="MouseLeftButtonUp" Handler="MasterItemSelected"/>
-            </Style>
-        </TreeView.ItemContainerStyle>
-    </TreeView>
+        Title="TreeView File Explorer for Windows (by Yaniv Harnoy)" Height="450" Width="800
+        ">
+
+    <Grid Margin="0,0,-8,-2">
+        <TreeView x:Name="myTree"  HorizontalAlignment="Left" VerticalAlignment="top">
+
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <EventSetter Event="MouseLeftButtonUp" Handler="MasterItemSelected"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+
+        <Button  x:Name="myButton" Content="Search" Margin="551,106,133,293"/>
+        <TextBox  x:Name="myTextBox" HorizontalAlignment="Left" Height="22" Margin="363,106,0,0" TextWrapping="Wrap" Text="Enter file name to search" VerticalAlignment="Top" Width="171"/>
+        <ProgressBar  x:Name="myProgressBar" HorizontalAlignment="Left" Height="26" Margin="363,64,0,0" VerticalAlignment="Top" Width="304"/>
+
+    </Grid>
+
 </Window>
