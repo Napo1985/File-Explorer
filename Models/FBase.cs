@@ -9,6 +9,15 @@ namespace FileExplorer.ViewModels
 {
 	abstract public class FBase  /* :INotifyPropertyChanged*/
 	{
+		#region ctor
+		public FBase(string fullPath, bool isFile)
+		{
+			m_isFile = isFile;
+			m_fullPath = fullPath;
+			m_name = Path.GetFileNameWithoutExtension(m_fullPath);
+		}
+		#endregion
+
 
 		#region events
 		//public event PropertyChangedEventHandler PropertyChanged;
@@ -49,15 +58,6 @@ namespace FileExplorer.ViewModels
 		protected string m_name;
 		protected string m_fullPath;
 		protected bool m_isFile;
-		#endregion
-
-		#region ctor
-		public FBase(string fullPath, bool isFile)
-		{
-			m_isFile = isFile;
-			m_fullPath = fullPath;
-			m_name = Path.GetFileNameWithoutExtension(m_fullPath);
-		}
 		#endregion
 
 
