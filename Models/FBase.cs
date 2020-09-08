@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.ComponentModel;
-namespace FileExplorer.ViewModels
+namespace FileExplorer.ViewModels 
 {
 	abstract public class FBase  /* :INotifyPropertyChanged*/
 	{
