@@ -19,10 +19,11 @@
             </TreeView.ItemContainerStyle>
         </TreeView>
 
-        <Button  x:Name="myButton" Content="Search" Margin="551,106,133,293"/>
-        <TextBox  x:Name="myTextBox" HorizontalAlignment="Left" Height="22" Margin="363,106,0,0" TextWrapping="Wrap" Text="Enter file name to search" VerticalAlignment="Top" Width="171"/>
-        <ProgressBar  x:Name="myProgressBar" HorizontalAlignment="Left" Height="26" Margin="363,64,0,0" VerticalAlignment="Top" Width="304"/>
-
+        <Button  x:Name="myButton" Content="Search" Click="OnSearchBtnClick" Margin="649,114,36,266"/>
+        <TextBox  x:Name="myTextBoxFile" HorizontalAlignment="Left" Height="22" Margin="461,120,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="171"/>
+        <ProgressBar  x:Name="myProgressBar" HorizontalAlignment="Left" Height="26" Margin="460,28,0,0" VerticalAlignment="Top" Width="304"/>
+        <TextBox  x:Name="myTextBoxpath" HorizontalAlignment="Left" Height="22" Margin="460,79,0,0" TextWrapping="Wrap" Text="C:\Users\harno\Downloads" VerticalAlignment="Top" Width="172"/>
+            
     </Grid>
 
 </Window>

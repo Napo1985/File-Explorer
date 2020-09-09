@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FileExplorer.Events;
+using System.Threading;
+
 namespace FileExplorer
 {
 	/// <summary>
@@ -78,11 +80,24 @@ namespace FileExplorer
 			return ret;
 		}
 
-		private void treeViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			TreeViewItem fatherItem = sender as TreeViewItem;
-			MasterItemSelected(sender, e);
-		}
+		delegate bool LunchSearch(ProgressBar pb, string path, string file);
 
+		private void OnSearchBtnClick(object sender, RoutedEventArgs e)
+		{
+			string path = myTextBoxpath.Text;
+			string file = myTextBoxFile.Text;
+			ProgressBar pb = myProgressBar;
+
+			LunchSearch pbRun = new LunchSearch(clickEventsIns.RunSearch);
+
+
+			LunchSearch start = new LunchSearch(clickEventsIns.RunSearch);
+
+			Thread t = new Thread(
+					unused => clickEventsIns.RunSearch(pb, path, file) );
+
+			t.Start();
+
+		}
 	}
 }
