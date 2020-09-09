@@ -89,11 +89,12 @@ namespace FileExplorer
 			ProgressBar pb = myProgressBar;
 			Label lb = searchResultLabel;
 
-			Thread t = new Thread(
-					unused => clickEventsIns.RunSearch(pb, path, file,lb) );
+			//Thread t = new Thread( unused => clickEventsIns.RunSearch(pb, path, file,lb));
+			//t.Start();
 
-			t.Start();
-
+			Task<bool> task = new Task<bool>(() => this.clickEventsIns.RunSearch(pb, path, file, lb));
+			task.Start();
+			bool x = task.Result;
 		}
 	}
 }
