@@ -62,32 +62,32 @@ namespace FileExplorer.Events
 			else
 				percentFactor = files.Length / 100;
 
-			//Dispatcher.CurrentDispatcher.Invoke(() =>
-			//{
-			//	pb.Dispatcher.Invoke(() => pb.Value = 0);
-
-			//});
-			pb.Dispatcher.Invoke(() => pb.Value = 10);
+			ChangePb(pb, 0);
 
 			for (int i = 0; i < files.Length; i++)
 			{
 				if (Path.GetFileName(files[i]).Equals(file))
 				{
-					pb.Dispatcher.Invoke(() => pb.Value = 100);
+					ChangePb(pb, 100);
 					return true;
 				}
 				else
 				{
 					if (files.Length <100)
-						pb.Dispatcher.Invoke(() => pb.Value = i * percentFactor);
+						ChangePb(pb, i * percentFactor);
 					else
-						pb.Dispatcher.Invoke(() => pb.Value = i / percentFactor);
-					
+						ChangePb(pb, i / percentFactor);
+
 				}
 				Thread.Sleep(10);
 			}
-			pb.Dispatcher.Invoke(() => pb.Value = 0);
+			ChangePb(pb, 0);
 			return false;
+		}
+
+		private void ChangePb(ProgressBar pb, int value)
+		{
+			pb.Dispatcher.Invoke(() => pb.Value = value);
 		}
 	}
 }
