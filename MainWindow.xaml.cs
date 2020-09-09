@@ -88,11 +88,6 @@ namespace FileExplorer
 			string file = myTextBoxFile.Text;
 			ProgressBar pb = myProgressBar;
 
-			LunchSearch pbRun = new LunchSearch(clickEventsIns.RunSearch);
-
-
-			LunchSearch start = new LunchSearch(clickEventsIns.RunSearch);
-
 			Thread t = new Thread(
 					unused => clickEventsIns.RunSearch(pb, path, file) );
 
