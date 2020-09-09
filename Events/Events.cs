@@ -53,7 +53,7 @@ namespace FileExplorer.Events
 		}
 
 
-		public bool RunSearch (ProgressBar pb,string path, string file)
+		public bool RunSearch (ProgressBar pb,string path, string file, Label lb)
 		{
 			string[] files = Directory.GetFiles(path);
 			int percentFactor;
@@ -69,6 +69,7 @@ namespace FileExplorer.Events
 				if (Path.GetFileName(files[i]).Equals(file))
 				{
 					ChangePb(pb, 100);
+					ChangeLb(lb, "Found");
 					return true;
 				}
 				else
@@ -81,6 +82,7 @@ namespace FileExplorer.Events
 				}
 				Thread.Sleep(10);
 			}
+			ChangeLb(lb, "Not found");
 			ChangePb(pb, 0);
 			return false;
 		}
@@ -88,6 +90,11 @@ namespace FileExplorer.Events
 		private void ChangePb(ProgressBar pb, int value)
 		{
 			pb.Dispatcher.Invoke(() => pb.Value = value);
+		}
+
+		private void ChangeLb (Label lb, string text)
+		{
+			lb.Dispatcher.Invoke(() => lb.Content = text);
 		}
 	}
 }

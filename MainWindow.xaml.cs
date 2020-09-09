@@ -87,9 +87,10 @@ namespace FileExplorer
 			string path = myTextBoxpath.Text;
 			string file = myTextBoxFile.Text;
 			ProgressBar pb = myProgressBar;
+			Label lb = searchResultLabel;
 
 			Thread t = new Thread(
-					unused => clickEventsIns.RunSearch(pb, path, file) );
+					unused => clickEventsIns.RunSearch(pb, path, file,lb) );
 
 			t.Start();
 
