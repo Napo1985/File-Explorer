@@ -80,8 +80,6 @@ namespace FileExplorer
 			return ret;
 		}
 
-		delegate bool LunchSearch(ProgressBar pb, string path, string file);
-
 		private void OnSearchBtnClick(object sender, RoutedEventArgs e)
 		{
 			string path = myTextBoxpath.Text;
@@ -94,7 +92,6 @@ namespace FileExplorer
 
 			Task<bool> task = new Task<bool>(() => this.clickEventsIns.RunSearch(pb, path, file, lb));
 			task.Start();
-			bool x = task.Result;
 		}
 	}
 }

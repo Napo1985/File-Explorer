@@ -10,7 +10,7 @@
         ">
 
     <Grid Margin="0,0,-8,-2">
-        <TreeView x:Name="myTree"  HorizontalAlignment="Left" VerticalAlignment="top">
+        <TreeView x:Name="myTree"  HorizontalAlignment="Left" VerticalAlignment="top" MaxWidth="400">
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
